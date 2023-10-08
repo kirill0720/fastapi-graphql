@@ -1,7 +1,7 @@
 import strawberry
 
 from controller import CreateMutation, Queries
-from schema import UserType, PostType, CommentsType
+from schema import CommentsType, PostType, UserType
 
 
 @strawberry.type

@@ -4,7 +4,6 @@ from strawberry.fastapi import GraphQLRouter
 
 from core import Mutation, Query
 
-
 schema = strawberry.Schema(query=Query, mutation=Mutation)
 graphql_app = GraphQLRouter(schema)
 
@@ -14,4 +13,4 @@ app.include_router(graphql_app, prefix="/graphql")
 
 @app.get("/")
 def index():
-    return {"ping": 'pong'}
+    return {"ping": "pong"}

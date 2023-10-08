@@ -1,6 +1,6 @@
-import strawberry
-
 from typing import Optional
+
+import strawberry
 
 
 @strawberry.type

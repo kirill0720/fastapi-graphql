@@ -47,24 +47,27 @@ def test_get_user_list(user):
     assert response.status_code == 200
 
     result = response.json()
-    assert type(result['data']['users']) == list
+    assert isinstance(result["data"]["users"], list)
     assert result["data"]["users"][0]["name"] == user.name
 
 
 def test_get_single_user(user):
-    query = """
+    query = (
+        """
       query {
           getSingleUser(userId: %s) {
               name
               address
           }
       }
-    """ % user.id
+    """
+        % user.id
+    )
 
     response = client.post("/graphql", json={"query": query})
     assert response is not None
     assert response.status_code == 200
 
     result = response.json()
-    assert type(result['data']['getSingleUser']) == dict
+    assert isinstance(result["data"]["getSingleUser"], list)
     assert result["data"]["getSingleUser"]["name"] == user.name

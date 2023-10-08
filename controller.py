@@ -1,12 +1,11 @@
+from config.database import DB
 from models.Comment import Comment
 from models.Post import Post
 from models.User import User
 from schema import CommentInput, CommentsType, PostInput, PostType, UserInput, UserType
-from config.database import DB
 
 
 class CreateMutation:
-
     def add_user(self, user_data: UserInput):
         user = User.where("email", user_data.email).get()
         if user:
@@ -60,7 +59,6 @@ class CreateMutation:
 
 
 class Queries:
-
     def get_all_users(self) -> list[UserType]:
         return User.all()
 
